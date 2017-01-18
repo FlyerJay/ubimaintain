@@ -1,5 +1,5 @@
 <template>
-	<div class="car-info-view">
+	<div class="carinfo-view">
 		<page-header></page-header>
 		<div class="page-content">
 			<group title="">
@@ -30,8 +30,5 @@
 	}
 </script>
 <style scoped lang="less">
-	.weui_cells.vux-no-group-title{
-		margin-top:0px;
-	}
 </style>
 

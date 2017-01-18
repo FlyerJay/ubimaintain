@@ -12,12 +12,15 @@
 			console.warn("未获取到上下文！");
 			return false;
 		}
-		var index = $.inarray(url,self.pagestack.list)
-		if (index > 0) {
-
+		var index = $.inArray(url,self.pagestack.list)
+		if (index >= 0) {
+			this.pagestack.list = this.pagestack.list.splice(0,index+1);
+			console.log("已有页面");
 		}else{
-			context.$router.push(url);
+			this.pagestack.list.push(url);
 		}
+		context.$router.push(url);
+		this.pagestack.pushData = data || "";
 	}
 
 	C.popTo = function(context, url, data){

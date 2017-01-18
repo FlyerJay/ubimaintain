@@ -18,7 +18,7 @@
 		},
 		methods:{
 			goBack:function(){
-				this.$router.go(-1);
+				pageController.push(this,"carinfo");
 			}
 		}
 	}
