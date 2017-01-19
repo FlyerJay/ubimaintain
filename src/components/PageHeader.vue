@@ -13,12 +13,15 @@
 	export default{
 		data () {
 			return {
-				title:'车辆信息',
+				
 			}
+		},
+		props:{
+			title:String,
 		},
 		methods:{
 			goBack:function(){
-				pageController.push(this,"carinfo");
+				pageController.pop(this,1);
 			}
 		}
 	}

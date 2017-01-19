@@ -7,6 +7,10 @@ export default[
 			{
 				path:"/carinfo",
 				component:resolve => require(["../pages/carinfo"],resolve)
+			},
+			{
+				path:"/storelist",
+				component:resolve => require(["../pages/storelist"],resolve)
 			}
 		]
 	}

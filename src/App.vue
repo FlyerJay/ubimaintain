@@ -16,7 +16,6 @@
     	methods:{
     		appShow:function(){
           pageController.push(this,"carinfo");
-  		    this.$router.push("carinfo");
     		}
     	}
   }
