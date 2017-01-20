@@ -39,7 +39,9 @@ body,html{
   transition: all .5s ease;
 }
 .page-slide-leave-active {
-  transition: all 0s ease-out;
+  transition: all .5s ease-out;
+  position: absolute;
+  z-index: 1;
 }
 .page-slide-enter,.page-slide-leave-active{
   transform: translateX(100vw);
