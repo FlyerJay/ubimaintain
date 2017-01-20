@@ -45,14 +45,14 @@
 					{
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
-						score:4.5,
+						score:4.4,
 						photoUrl:"",
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
 					{
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
-						score:3,
+						score:3.2,
 						photoUrl:"",
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
