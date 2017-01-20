@@ -11,6 +11,10 @@ export default[
 			{
 				path:"/storelist",
 				component:resolve => require(["../pages/storelist"],resolve)
+			},
+			{
+				path:"/evaluate",
+				component:resolve => require(["../pages/evaluate"],resolve)
 			}
 		]
 	}
