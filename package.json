@@ -44,7 +44,7 @@
     "shelljs": "^0.7.4",
     "url-loader": "^0.5.7",
     "vue-loader": "^10.0.0",
-    "vux-loader":"^4.5.0",
+    "vux-loader":"^1.0.26",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.0",
     "webpack": "^1.13.2",
