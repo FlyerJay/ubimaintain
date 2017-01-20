@@ -18,13 +18,14 @@
 						<div class="store-info">
 							<span class="name">{{item.storeName}} <span class="distance">{{item.distance | distanceFilter}}</span></span>
 							<div class="score">
-								<span>
+								<span class="star" :style="{background:'-webkit-linear-gradient(-180deg, #d9d8d4 ' + ((5-item.score)/5)*100 + '%' + ', #ff853f 10px)','-webkit-background-clip':'text'}">
 									<i class="iconfont icon-star"></i>
 									<i class="iconfont icon-star"></i>
 									<i class="iconfont icon-star"></i>
 									<i class="iconfont icon-star"></i>
 									<i class="iconfont icon-star"></i>
 								</span>
+								<span class="grade">{{item.score|scoreFilter}}</span>
 							</div>
 							<div class="address">{{item.address}}</div>
 						</div>
@@ -48,8 +49,17 @@
 						photoUrl:"",
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
+					{
+						storeName:"重庆名驿长安汽车4S店",
+						distance:4.2,
+						score:3,
+						photoUrl:"",
+						address:"重庆市南岸区弹子石国际社区福民路38号9层"
+					},
 				]
 			}
+		},
+		methods:{
 		},
 		components:{
 			...components,
@@ -57,7 +67,11 @@
 		filters:{
 			distanceFilter:function(val){
 				return val + "km"
+			},
+			scoreFilter:function(val){
+				return val + "分"
 			}
+		
 		}
 	}
 </script>
@@ -110,6 +124,7 @@
 				.store-item{
 					height: 3.6rem;
 					background-color: #fff;
+					margin-bottom: 1px;
 					>div{
 						float: left;
 						height: 100%;
@@ -135,14 +150,20 @@
 						.score{
 							height: 1.2rem;
 							line-height: 1.2rem;
-							span{
+							.star{
 								font-size:0.8rem;
-								background:-webkit-linear-gradient(left,#ff853f,#d9d8d4);
+								background:-webkit-linear-gradient(-180deg, #d9d8d4 90%, #ff853f 10px);
 								-webkit-background-clip: text;
 								-webkit-text-fill-color: transparent;
+								padding: 0 0.1rem;
 								.iconfont{
 									font-size:0.8rem;
 								}
+							}
+							.grade{
+								color: #ff853f;
+								font-size: 0.657rem;
+								margin-left: 0.2rem;
 							}
 						}
 						.address{
