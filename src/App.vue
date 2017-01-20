@@ -15,7 +15,7 @@
     	},
     	methods:{
     		appShow:function(){
-          pageController.push(this,"carinfo");
+          pageController.push(this,"evaluate");
     		}
     	}
   }
