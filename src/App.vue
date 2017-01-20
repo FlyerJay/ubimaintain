@@ -15,7 +15,7 @@
     	},
     	methods:{
     		appShow:function(){
-          pageController.push(this,"evaluate");
+          pageController.push(this,"orderfile");
     		}
     	}
   }
