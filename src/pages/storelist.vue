@@ -56,13 +56,59 @@
 						photoUrl:"",
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
+					{
+						storeName:"重庆名驿长安汽车4S店",
+						distance:4.2,
+						score:3,
+						photoUrl:"",
+						address:"重庆市南岸区弹子石国际社区福民路38号9层"
+					},
+					{
+						storeName:"重庆名驿长安汽车4S店",
+						distance:4.2,
+						score:3,
+						photoUrl:"",
+						address:"重庆市南岸区弹子石国际社区福民路38号9层"
+					},
+					{
+						storeName:"重庆名驿长安汽车4S店",
+						distance:4.2,
+						score:3,
+						photoUrl:"",
+						address:"重庆市南岸区弹子石国际社区福民路38号9层"
+					},
+					{
+						storeName:"重庆名驿长安汽车4S店",
+						distance:4.2,
+						score:3,
+						photoUrl:"",
+						address:"重庆市南岸区弹子石国际社区福民路38号9层"
+					},
+					{
+						storeName:"重庆名驿长安汽车4S店",
+						distance:4.2,
+						score:3,
+						photoUrl:"",
+						address:"重庆市南岸区弹子石国际社区福民路38号9层"
+					},
 				]
 			}
 		},
 		methods:{
+			computeListHeight:function(){
+				var windowHeight = document.documentElement.clientHeight;
+				var otherHeight = (($(".page-header").css("height")).replace("px","") - 0) + (($(".date-field").css("height")).replace("px","") - 0) + (($(".filter-field").css("height")).replace("px","") - 0);
+				$(".store-list-container").css("height",windowHeight - otherHeight + "px");
+			}
 		},
 		components:{
 			...components,
+		},
+		updated:function(){
+			this.computeListHeight();
+		},
+		mounted:function(){
+			this.computeListHeight();
 		},
 		filters:{
 			distanceFilter:function(val){
