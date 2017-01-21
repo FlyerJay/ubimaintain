@@ -15,6 +15,10 @@ export default[
 			{
 				path:"/evaluate",
 				component:resolve => require(["../pages/evaluate"],resolve)
+			},
+			{
+				path:"/orderlist",
+				component:resolve => require(["../pages/orderlist"],resolve)
 			}
 		]
 	}

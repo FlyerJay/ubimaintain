@@ -15,7 +15,7 @@
     	},
     	methods:{
     		appShow:function(){
-          pageController.push(this,"evaluate");
+          pageController.push(this,"carinfo");
     		}
     	}
   }
@@ -37,13 +37,16 @@ body,html{
 }
 .page-slide-enter-active {
   transition: all .5s ease;
+  width: 100%;
 }
 .page-slide-leave-active {
   transition: all .5s ease-out;
   position: absolute;
   z-index: 1;
+  width: 100%;
 }
 .page-slide-enter,.page-slide-leave-active{
   transform: translateX(100vw);
+  width: 100%;
 }
 </style>

@@ -14,7 +14,7 @@
 			<div class="store-list-container">
 				<div class="store-list">
 					<div class="store-item" v-for="(item,index) in storelist">
-						<div class="photo"></div>
+						<div class="photo" :style="{'background-image':'url('+item.photoUrl+')'}"></div>
 						<div class="store-info">
 							<span class="name">{{item.storeName}} <span class="distance">{{item.distance | distanceFilter}}</span></span>
 							<div class="score">
@@ -46,49 +46,49 @@
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
 						score:4.4,
-						photoUrl:"",
+						photoUrl:require("../assets/store_photo.jpg"),
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
 					{
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
-						score:3.2,
-						photoUrl:"",
-						address:"重庆市南岸区弹子石国际社区福民路38号9层"
-					},
-					{
-						storeName:"重庆名驿长安汽车4S店",
-						distance:4.2,
-						score:3,
-						photoUrl:"",
+						score:3.8,
+						photoUrl:require("../assets/store_photo.jpg"),
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
 					{
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
 						score:3,
-						photoUrl:"",
+						photoUrl:require("../assets/store_photo.jpg"),
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
 					{
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
 						score:3,
-						photoUrl:"",
+						photoUrl:require("../assets/store_photo.jpg"),
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
 					{
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
 						score:3,
-						photoUrl:"",
+						photoUrl:require("../assets/store_photo.jpg"),
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
 					{
 						storeName:"重庆名驿长安汽车4S店",
 						distance:4.2,
 						score:3,
-						photoUrl:"",
+						photoUrl:require("../assets/store_photo.jpg"),
+						address:"重庆市南岸区弹子石国际社区福民路38号9层"
+					},
+					{
+						storeName:"重庆名驿长安汽车4S店",
+						distance:4.2,
+						score:4.2,
+						photoUrl:require("../assets/store_photo.jpg"),
 						address:"重庆市南岸区弹子石国际社区福民路38号9层"
 					},
 				]
@@ -123,6 +123,8 @@
 </script>
 <style scoped lang="less">
 	.page-content{
+		background-color: #efefef;
+		height: 100%;
 		.date-field{
 			height: 1.5rem;
 			line-height: 1.5rem;
@@ -177,6 +179,9 @@
 					}
 					.photo{
 						width: 23%;
+						background-size: 80%;
+						background-position: center center;
+						background-repeat: no-repeat;
 					}
 					.store-info{
 						width: 77%;

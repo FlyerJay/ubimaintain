@@ -73,7 +73,12 @@
 	}
 </script>
 <style scoped lang="less">
+	.carinfo-view{
+		height: 100%;
+	}
 	.page-content{
+		background-color: #efefef;
+		height: 100%;
 		.car-model{
 			height: 2.9rem;
 			width: 100%;
