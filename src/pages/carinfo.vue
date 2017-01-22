@@ -1,5 +1,6 @@
 <template>
 	<div class="carinfo-view">
+		<modal show="show" title="填写您的联系电话"></modal>
 		<page-header title="车辆信息"></page-header>
 		<div class="page-content">
 			<div class="car-model">
@@ -55,6 +56,7 @@
 				currentMileage:"1000",
 				miaosu:"保养过期还有",
 				date:90,
+				show:false,
 			}
 		},
 		methods:{

@@ -9,6 +9,7 @@ body,html{
 	background-color:#fff;
 	color:#4b4b4b;
 	overflow: hidden;
+	position: relative;
 }
 .page-content{
 	font-size: 0.6rem;

@@ -1,2 +1,3 @@
 import PageHeader from './PageHeader'
-export default {PageHeader}
+import modal from './modal'
+export default {PageHeader,modal}
