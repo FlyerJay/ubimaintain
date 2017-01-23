@@ -1,9 +1,13 @@
 <template>
-	<div class="modal-view" v-if="show">
+	<div class="modal-view" v-if="showHandler">
 		<div class="modal-view-mask"></div>
-		<div class="modal-content">
-			<div class="modal-close-button" @click="show=false"></div>
+		<div class="modal-container">
+			<div class="modal-close-button" @click="closeModal"></div>
 			<div class="modal-title"><span>{{title}}</span></div>
+			<slot name="modal-content">
+			</slot>
+			<slot name="modal-button">
+			</slot>
 		</div>
 	</div>
 </template>
@@ -11,18 +15,24 @@
 	export default{
 		data () {
 			return {
-
+				showHandler:false,
 			}
 		},
 		props:{
-			show:Boolean,
+			show:{
+				type:Boolean,
+				default:false,
+			},
 			title:String,
 		},
-		computed:{
+		methods:{
+			closeModal:function(){
+				this.$parent.showModal = false;
+			}
 		},
 		watch:{
 			show:function(val){
-				console.log(val);
+				this.showHandler = val;
 			}
 		}
 	}
@@ -39,7 +49,7 @@
 			height: 100%;
 			background-color: rgba(0,0,0,0.7);
 		}
-		.modal-content{
+		.modal-container{
 			width: 12rem;
 		    height: 9rem;
 		    position: absolute;

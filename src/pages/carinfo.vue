@@ -1,6 +1,18 @@
 <template>
 	<div class="carinfo-view">
-		<modal show="show" title="填写您的联系电话"></modal>
+		<modal v-model="showModal" :show.sync="showModal" title="填写您的联系电话">
+			<div class="modal-content" slot="modal-content">
+				<i class="iconfont icon-phone"></i>
+				<input v-if="updateTelphone" maxlength="11" type="number" :value="telphone" class="telphone-input">
+				<span v-else="updateTelphone" class="telphone">{{telphone}}</span>
+			</div>
+			<div class="modal-button" slot="modal-button">
+				<span  v-if="updateTelphone" class="update-button" @click="updateTelphone=false">取消</span>
+				<span v-else="updateTelphone" class="update-button" @click="updateTelphone=true">更改</span>
+				<span  v-if="updateTelphone" class="sure-button" @click="sureTelphone">确认</span>
+				<span v-else="updateTelphone" class="right-button">正确</span>
+			</div>
+		</modal>
 		<page-header title="车辆信息"></page-header>
 		<div class="page-content">
 			<div class="car-model">
@@ -36,7 +48,7 @@
 					<div class="immediate-order" @click="immediateOrder">立即预约下单</div>
 				</div>
 				<div class="button-control">
-					<div class="place-order">一键下单</div>
+					<div class="place-order" @click="placeOrder">一键下单</div>
 				</div>
 			</div>
 		</div>
@@ -56,12 +68,21 @@
 				currentMileage:"1000",
 				miaosu:"保养过期还有",
 				date:90,
-				show:false,
+				showModal:false,
+				telphone:15178831138,
+				updateTelphone:false,
 			}
 		},
 		methods:{
 			immediateOrder:function(){
 				pageController.push(this,"storelist");
+			},
+			placeOrder:function(){
+				this.showModal = true;
+			},
+			sureTelphone:function(){
+				this.telphone = $(".telphone-input").val();
+				this.updateTelphone = false;
 			}
 		},
 		filters:{
@@ -77,6 +98,46 @@
 <style scoped lang="less">
 	.carinfo-view{
 		height: 100%;
+	}
+	.modal-content{
+		text-align: center;
+		height: 4rem;
+		line-height: 4rem;
+		font-size: 0.8rem;
+		color: #fd8741;
+		.icon-phone{
+			font-size:2rem;
+			margin-right: 0.2rem;
+			position: relative;
+			top: 0.3rem;
+		}
+		.telphone-input{
+			border:none;
+			font-size: 0.8rem;
+			display: inline-block;
+			color: #fd8741;
+			outline: none;
+			max-width: 5.5rem;
+			text-decoration: underline;
+		}
+	}
+	.modal-button{
+		text-align: center;
+		height: 3rem;
+		line-height: 3rem;
+		font-size: 0.7rem;
+		span{
+			padding: 0.1rem 1rem;
+			border-radius: 1rem;
+			border:1px solid #00adfa;
+		}
+		.update-button{
+			margin-right: 0.5rem;
+		}
+		.sure-button,.right-button{
+			color: #fff;
+			background-color: #00adfa;
+		}
 	}
 	.page-content{
 		background-color: #efefef;
