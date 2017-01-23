@@ -3,13 +3,18 @@
 		<page-header title="4S店选择"></page-header>
 		<div class="page-content">
 			<div class="date-field">
-				<div class="prev">前一天</div>
-				<span class="date">{{today}}</span>
-				<div class="next">后一天</div>
+				<div class="prev" @click="prevDate">前一天</div>
+				<span class="date">{{todayDate}}</span>
+				<div class="next" @click="nextDate">后一天</div>
 			</div>
 			<div class="filter-field">
 				<div class="date">选择时间<i class="iconfont icon-selectarrow"></i></div>
-				<div class="sort">距离优先<i class="iconfont icon-selectarrow"></div>
+				<div class="sort" @click="toggleSort">{{sortlist[sortShow].text}}<i class="iconfont icon-selectarrow"></div>
+				<div class="sort-list" v-if="sortlistShow">
+					<div class="sort-item" v-for="(item,index) in sortlist" :class="{'selected':item.value==sortShow}" @click="afterSortClick(item.value)">
+						<i class="iconfont icon-select1"></i><span>{{item.text}}</span>
+					</div>
+				</div>
 			</div>
 			<div class="store-list-container">
 				<div class="store-list">
@@ -40,7 +45,31 @@
 	export default{
 		data () {
 			return {
-				today:"2017-1-19",
+				today:new Date(),
+				sortlistShow:false,
+				sortShow:0,
+				sortlist:[
+					{
+						text:"智能排序",
+						value:0,
+					},
+					{
+						text:"距离优先",
+						value:1,
+					},
+					{
+						text:"上次保养",
+						value:2,
+					},
+					{
+						text:"评分最该",
+						value:3,
+					},
+					{
+						text:"手动选择",
+						value:4,
+					},
+				],
 				storelist:[
 					{
 						storeName:"重庆名驿长安汽车4S店",
@@ -94,11 +123,37 @@
 				]
 			}
 		},
+		computed:{
+			todayDate:function(){
+				var y = this.today.getFullYear();  
+				var m = this.today.getMonth() + 1;  
+				m = m < 10 ? ('0' + m) : m;  
+				var d = this.today.getDate();  
+				d = d < 10 ? ('0' + d) : d;  
+				return y + '-' + m + '-' + d;  
+			},
+		},
 		methods:{
 			computeListHeight:function(){
 				var windowHeight = document.documentElement.clientHeight;
 				var otherHeight = (($(".page-header").css("height")).replace("px","") - 0) + (($(".date-field").css("height")).replace("px","") - 0) + (($(".filter-field").css("height")).replace("px","") - 0);
 				$(".store-list-container").css("height",windowHeight - otherHeight + "px");
+			},
+			toggleSort:function(){
+				if(this.sortlistShow){
+					this.sortlistShow = false;
+				}else{
+					this.sortlistShow = true;
+				}
+			},
+			afterSortClick:function(val){
+				this.sortShow = val;
+			},
+			prevDate:function(){
+				this.today = new Date(this.today.getTime() - (1000 * 60 * 60 * 24));
+			},
+			nextDate:function(){
+				this.today = new Date(this.today.getTime() + (1000 * 60 * 60 * 24));
 			}
 		},
 		components:{
@@ -146,6 +201,7 @@
 			background-color: #fff;
 			text-align: center;
 			margin-bottom: 1px;
+			position: relative;
 			.date{
 				width: 50%;
 				float: left;
@@ -164,6 +220,29 @@
 				bottom: 0.2rem;
 				width: 1px;
 				background-color: #efefef;
+			}
+			.sort-list{
+				position: absolute;
+				z-index: 1;
+				width: 94%;
+				background-color: #fff;
+				text-align: left;
+				top:1.6rem;
+				padding: 0 3%;
+				.sort-item{
+					position: relative;
+					border-bottom: 1px solid #efefef;
+					.iconfont{
+						color: #fff;
+						margin-right: 0.2rem
+					}
+				}
+				.sort-item.selected{
+					color:#00adfa;
+					.iconfont{
+						color:#00adfa;
+					}
+				}
 			}
 		}
 		.store-list-container{
