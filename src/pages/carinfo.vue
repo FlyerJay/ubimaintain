@@ -114,11 +114,11 @@
 		.telphone-input{
 			border:none;
 			font-size: 0.8rem;
-			display: inline-block;
 			color: #fd8741;
 			outline: none;
-			max-width: 5.5rem;
+			max-width: 5.1rem;
 			text-decoration: underline;
+			font-family: "Microsoft YaHei";
 		}
 	}
 	.modal-button{
